@@ -1,48 +1,45 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "123.h"
+#include "living-being.h"
 using namespace std;
 
-
-class Director : public Employee {
+class Shelter : public Employee {
 public:
-    virtual ~Director();
+    virtual ~Shelter();
 
-    Director(string firstName, string surName, string nameLibrary, double salary, bool atWork, int experience);
-    Director();
-    Director(bool atWork, int experience);
+    Shelter(string firstName, string surname, double salary, int quantityAnimalsControl);
+    Shelter();
+    Shelter(int quantityAnimalsControl);
 
-    string getAtWork();
-    int getExperience(); 
+    int getQuantityAnimalsControl();
     
-    void setAtWork(bool atWork);
-    void setExperience(int experience);
+    void setQuantityAnimalsControl(int quantityAnimalsControl);
 
     void showInfo();
 
 private:
-    bool _atWork; 
-    int _experience;
+    int _quantityAnimalsControl; 
 };
 
-class Librarian : public Employee {
+class Veterinarian : public Employee {
 public:
-    ~Librarian();
+    virtual ~Veterinarian();
 
-    Librarian(string firstName, string surName, string nameLibrary, double salary, string specialization, int quantity);
-    Librarian();
-    Librarian(string specialization, int quantity);
+    Veterinarian(string firstName, string surname, double salary, int quantityAnimalsCured);
+    Veterinarian();
+    Veterinarian(int quantityAnimalsCured);
+
+    int getQuantityAnimalsCured();
     
-    string getSpecializationL();
-    int getQuantity();
-    
-    void setSpecialization(string specialization);
-    void setQuantity(int quantity);
-    
+    void setQuantityAnimalsCured(int quantityAnimalsCured);
+
     void showInfo();
-    
+
 private:
-    string _specialization; 
-    int _quantity; 
+    int _quantityAnimalsCured; 
 };
+
+
+
+

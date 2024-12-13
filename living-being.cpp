@@ -1,4 +1,4 @@
-#include "123.h"
+#include "living-being.h"
 #include <cmath>
 
 LivingBeing::~LivingBeing() {}
@@ -89,6 +89,6 @@ void Animal::setBreed(string breed) {
 
 void Animal::showInfo() {
     LivingBeing::showInfo();
-    cout << "Вес животного: " << _weight << endl;
+    cout << "Вес животного: " << _weight << " кг" << endl;
     cout << "Порода животного: " << _breed << endl;
 }

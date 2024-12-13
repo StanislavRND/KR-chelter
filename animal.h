@@ -1,55 +1,57 @@
 #pragma once
+#include <iostream>
 #include <string>
+#include "living-being.h"
 using namespace std;
 
-class Book {
+class Dog : public Animal {
 public:
-    ~Book();
+    virtual ~Dog();
 
-    Book(string bookName);
-    Book();
+    Dog(string firstName, double weight, string breed, bool isService);
+    Dog();
+    Dog(bool isService);
 
-    string getBookName();
-
-    void setBookName(string bookName);
+    bool getIsService();
     
+    void setIsService(bool isService);
+
     void showInfo();
-    
+
 private:
-    string _bookName; 
+    bool _isService; 
 };
 
-//--------------------------
-
-class Author : public Book {
+class Cat : public Animal {
 public:
-    Author(string bookName, string authorName);
-    Author();
+    virtual ~Cat();
 
-    string getAuthorName();
+    Cat(string firstName, double weight, string breed, string conduct);
+    Cat();
+    Cat(string conduct);
 
-    void setAuthorName(string authorName);
+    string getConduct();
+    
+    void setConduct(string conduct);
 
+    void showInfo();
+
+private:
+    string _conduct; 
+};
+
+class CatDog : public Dog, public Cat {
+public:
+    CatDog(string firstName, double weight, string breed, string conduct, bool isService, string dominant);
+    CatDog();
+    ~CatDog();
+
+    string getDominant() ;
+    void setDominant(string dominant);
     void showInfo() ;
 
 private:
-    string _authorName; 
+    string _dominant; 
 };
 
-//-------------------------------
 
-
-class Publisher : public Author {
-public:
-    Publisher(std::string bookName, std::string authorName, std::string publisherName);
-    Publisher();
-
-    string getPublisherName();
-
-    void setPublisherName(string publisherName);
-
-    void showInfo(); 
-
-private:
-    string _publisherName; 
-};

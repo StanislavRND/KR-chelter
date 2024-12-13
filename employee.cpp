@@ -1,78 +1,50 @@
-#include <iostream>
-#include <string>
-#include "working_staff.h"
-using namespace std;
+#include "employee.h"
 
 
-Director::~Director() {}
+Shelter::~Shelter() {}
 
-Director::Director(string firstName, string surName, string nameLibrary, double salary, bool atWork, int experience)
-    : Employee(firstName, surName, nameLibrary, salary), _atWork(atWork), _experience(experience) {}
+Shelter::Shelter(string firstName, string surname, double salary, int quantityAnimalsControl)
+    : Employee(firstName, surname, salary), _quantityAnimalsControl(quantityAnimalsControl) {}
 
-Director::Director() : Director ("не определено", "не определено", "не определено", 0.0, false, 0) {}
+Shelter::Shelter() : Shelter("не определено", "не определено", 0.0, 0) {}
 
+Shelter::Shelter(int quantityAnimalsControl) 
+    : Employee("не определено", "не определено", 0.0), _quantityAnimalsControl(quantityAnimalsControl) {}
 
-Director::Director(bool atWork, int experience)
-    : _atWork(atWork), _experience(experience) {}
-
-string Director::getAtWork() {
-    return _atWork ? "Да" : "Нет";
+int Shelter::getQuantityAnimalsControl() {
+    return _quantityAnimalsControl;
 }
 
-
-int Director::getExperience() {
-    return _experience;
+void Shelter::setQuantityAnimalsControl(int quantityAnimalsControl) {
+    _quantityAnimalsControl = quantityAnimalsControl;
 }
 
-
-void Director::setAtWork(bool atWork) {
-    this->_atWork = atWork;
-}
-
-
-void Director::setExperience(int experience) {
-    this->_experience = experience;
-}
-
-
-void Director::showInfo() {
+void Shelter::showInfo() {
     Employee::showInfo(); 
-    cout << "На работе: " << _atWork << endl;
-    cout << "Опыт: " << _experience << " лет" << endl;
+    cout << "Количество управляемых животных: " << _quantityAnimalsControl << endl;
 }
 
-//-------------------------------
-Librarian::~Librarian() {}
 
 
-Librarian::Librarian(string firstName, string surName, string nameLibrary, double salary, string specialization, int quantity)
-    : Employee(firstName, surName, nameLibrary, salary), _specialization(specialization), _quantity(quantity) {}
+Veterinarian::~Veterinarian() {}
 
+Veterinarian::Veterinarian(string firstName, string surname, double salary, int quantityAnimalsCured)
+    : Employee(firstName, surname, salary), _quantityAnimalsCured(quantityAnimalsCured) {}
 
-Librarian::Librarian() : Librarian ("не определено", "не определено", "не определено", 0.0, "не определено", 0) {}
+Veterinarian::Veterinarian() : Veterinarian("не определено", "не определено", 0.0, 0) {}
 
-Librarian::Librarian(string specialization, int quantity)
-    : _specialization(specialization), _quantity(quantity) {}
+Veterinarian::Veterinarian(int quantityAnimalsCured) 
+    : Employee("не определено", "не определено", 0.0), _quantityAnimalsCured(quantityAnimalsCured) {}
 
-
-string Librarian::getSpecializationL() {
-    return _specialization;
+int Veterinarian::getQuantityAnimalsCured() {
+    return _quantityAnimalsCured;
 }
 
-int Librarian::getQuantity() {
-    return _quantity;
+void Veterinarian::setQuantityAnimalsCured(int quantityAnimalsCured) {
+    _quantityAnimalsCured = quantityAnimalsCured;
 }
 
-void Librarian::setSpecialization(string specialization) {
-    this->_specialization = specialization;
-}
-
-void Librarian::setQuantity(int quantity) {
-    this->_quantity = quantity;
-}
-
-void Librarian::showInfo() {
+void Veterinarian::showInfo() {
     Employee::showInfo();
-    cout << "Специализация: " << _specialization << endl;
-    cout << "Количество обслуженных клиентов: " << _quantity << endl;
+    cout << "Количество вылеченных животных: " << _quantityAnimalsCured << endl;
 }
