@@ -3,38 +3,35 @@
 #include <string>
 using namespace std;
 
-class User {
+class LivingBeing {
 public:
-    virtual ~User();
+    virtual ~LivingBeing();
 
-    User(string firstName, string surName);
-    User();
+    LivingBeing(string firstName);
+    LivingBeing();
 
     string getFirstName();
-    string getSurname();
 
     void setFirstName(string firstName);
-    void setSurname(string surName);
     
     virtual void showInfo();
     
 private:
     string _firstName; 
-    string _surName; 
 };
 
 //-------------------------------------------------
 
-class Employee : public User {
+class Employee : public LivingBeing {
 public:
     ~Employee();
 
-    Employee(string firstName, string surName, string nameLibrary, double salary);
+    Employee(string firstName, string surname, double salary);
     Employee();
-    Employee(string nameLibrary, double salary);
+    Employee(string surname, double salary);
     
-    string getNameLibrary();
-    void setNameLibrary(string nameLibrary);
+    string getSurname();
+    void setSurname(string surname);
     
     double getSalary();
     void setSalary(double salary);
@@ -42,26 +39,30 @@ public:
     void showInfo();
 
 private:
-    string _nameLibrary; 
+    string _surname;
     double _salary; 
 };
 
 //-------------------------------------------------
 
-class Client : public User {
+class Animal : public LivingBeing {
 public:
 
-    ~Client();
+    ~Animal();
     
-    Client(string firstName, string surName, int bilet);
-    Client();
-    Client(int bilet);
+    Animal(string firstName, double weight, string breed);
+    Animal();
+    Animal(double weight, string breed);
     
-    int getBilet();
-    void setBilet(int bilet);
+    double getWeight();
+    void setWeight(double weight);
+    
+    string getBreed();
+    void setBreed(string breed);
     
     void showInfo();
 
 private:
-    int _bilet;
+    double _weight;
+    string _breed;
 };

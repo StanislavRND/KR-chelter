@@ -1,26 +1,21 @@
 #include "123.h"
 #include <cmath>
 
-User::~User() {}
+LivingBeing::~LivingBeing() {}
 
-User::User() : User("не определено", "не определено") {}
+LivingBeing::LivingBeing() : LivingBeing("не определено") {}
 
-User::User(string firstName, string surName) : _firstName(firstName), _surName(surName) {}
+LivingBeing::LivingBeing(string firstName) : _firstName(firstName) {}
 
-string User::getFirstName() { return _firstName; }
-string User::getSurname() { return _surName; }
+string LivingBeing::getFirstName() { return _firstName; }
 
-void User::setFirstName(string firstName) {
+void LivingBeing::setFirstName(string firstName) {
     this->_firstName = firstName;
 }
 
-void User::setSurname(string surName) {
-    this->_surName = surName;
-}
 
-void User::showInfo() {
-    std::cout << "Имя: " << _firstName << "\n";
-    std::cout << "Фамилия: " << _surName << "\n";
+void LivingBeing::showInfo() {
+    cout << "Имя: " << _firstName << "\n";
 }
 
 //--------------------------------------------------------------------------------
@@ -28,22 +23,22 @@ void User::showInfo() {
 Employee::~Employee() {}
 
 
-Employee::Employee(string firstName, string surName, string nameLibrary, double salary)
-    : User(firstName, surName), _nameLibrary(nameLibrary), _salary(salary) {}
+Employee::Employee(string firstName, string surname, double salary)
+    : LivingBeing(firstName), _surname(surname), _salary(salary) {}
 
-Employee::Employee() : Employee("не определено", "не определено", "не определено", 0.0) {}
-
-
-Employee::Employee(string nameLibrary, double salary)
-    : _nameLibrary(nameLibrary), _salary(salary) {}
+Employee::Employee() : Employee("не определено", "не определено", 0.0) {}
 
 
-string Employee::getNameLibrary() {
-    return _nameLibrary;
+Employee::Employee(string surname, double salary)
+    : LivingBeing("не определено"), _surname(surname), _salary(salary) {}
+
+
+string Employee::getSurname() {
+    return _surname;
 }
 
-void Employee::setNameLibrary(string nameLibrary) {
-    this->_nameLibrary = nameLibrary;
+void Employee::setSurname(string surname) {
+    this->_surname = surname;
 }
 
 double Employee::getSalary() {
@@ -55,36 +50,45 @@ void Employee::setSalary(double salary) {
 }
 
 void Employee::showInfo() {
-    User::showInfo();
-    cout << "Библиотека: " << _nameLibrary << endl;
+    LivingBeing::showInfo();
+    cout << "Фамилия: " << _surname << endl;
     cout << "Зарплата: " << _salary << endl;
 }
 
 //--------------------------------------------------------------------------------
 
 
-Client::~Client() {}
+Animal::~Animal() {}
 
-Client::Client(string firstName, string surName, int bilet)
-    : User(firstName, surName), _bilet(bilet) {}
+Animal::Animal(string firstName, double weight, string breed)
+    : LivingBeing(firstName), _weight(weight), _breed(breed) {}
 
-Client::Client() : Client("не определено", "не определено", 0) {}
-
-
-Client::Client(int bilet)
-    : _bilet(bilet) {}
+Animal::Animal() : Animal("не определено", 0.0, "не определено") {}
 
 
-int Client::getBilet() {
-    return _bilet;
+Animal::Animal(double weight, string breed)
+    : _weight(weight), _breed(breed) {}
+
+
+double Animal::getWeight() {
+    return _weight;
 }
 
-void Client::setBilet(int bilet) {
-    this->_bilet = bilet;
+void Animal::setWeight(double weight) {
+    this->_weight = weight;
+}
+
+string Animal::getBreed() {
+    return _breed;
+}
+
+void Animal::setBreed(string breed) {
+    this->_breed = breed;
 }
 
 
-void Client::showInfo() {
-    User::showInfo();
-    cout << "Номер читательского билета: " << _bilet << endl;
+void Animal::showInfo() {
+    LivingBeing::showInfo();
+    cout << "Вес животного: " << _weight << endl;
+    cout << "Порода животного: " << _breed << endl;
 }

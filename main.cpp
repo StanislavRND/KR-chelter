@@ -1,42 +1,19 @@
 #include <iostream>
 #include "123.h"
-#include "employee.h"
-#include "animal.h"         
 using namespace std;
 
 int main() {
-    Director director("Иван", "Иванов", "Центральная библиотека", 50000.0, true, 10);
-    Librarian librarian("Анна", "Петрова", "Центральная библиотека", 30000.0, "Специалист по редким книгам", 5);
-    
-    cout << "Информация о директоре:" << endl;
-    director.showInfo();
-    cout << endl; 
+    LivingBeing person("Иван");
 
-    cout << "Информация о библиотекаре:" << endl;
-    librarian.showInfo();
+    Employee employee("Алексей", "Петров", 50000.0);
+    cout << "Информация о сотруднике:" << endl;
+    employee.showInfo();
     cout << endl;
 
-    Client client("Иван", "Иванов", 12345);
-    
-    Book book("Война и мир");
-    
-    Transaction transaction("Иван", "Иванов", 12345, "Война и мир", 14);
-    
-    cout << "Информация о клиенте:" << endl;
-    client.showInfo();
+    Animal animal("Барсик", 5.5, "Сибирская кошка");
+    cout << "Информация о животном:" << endl;
+    animal.showInfo();
     cout << endl;
-
-    cout << "Информация о книге:" << endl;
-    book.showInfo();
-    cout << endl;
-    
-    transaction.showInfo();
-    
-    LateReturn lateReturn("Синельников", "Станислав",  4567, "Война и мир", 16, 1.5);
-    lateReturn.returnBook(true);
-    
-    cout << endl << "Информация о просроченном возврате:" << endl;
-    lateReturn.showInfo();
 
     return 0;
 }
