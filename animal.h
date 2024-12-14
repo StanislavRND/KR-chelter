@@ -4,7 +4,7 @@
 #include "living-being.h"
 using namespace std;
 
-class Dog : public Animal {
+class Dog : virtual public Animal {
 public:
     virtual ~Dog();
 
@@ -22,7 +22,7 @@ private:
     bool _isService; 
 };
 
-class Cat : public Animal {
+class Cat : virtual public Animal {
 public:
     virtual ~Cat();
 
